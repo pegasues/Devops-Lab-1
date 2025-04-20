@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Distance to Light Years Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Convert Distance to Light Years</h1>
+  <p>Enter distance in kilometers:</p>
+  
+  <input type="number" id="distanceInput" placeholder="e.g. 9.461e+12" />
+  <button onclick="convertToLightYears()">Convert</button>
+  
+  <p id="result"></p>
+
+  <script>
+    function convertToLightYears() {
+      const kmPerLightYear = 9.461e+12; // 1 light year in kilometers
+      const distance = parseFloat(document.getElementById("distanceInput").value);
+      
+      if (isNaN(distance) || distance < 0) {
+        document.getElementById("result").textContent = "Please enter a valid positive number.";
+        return;
+      }
+      
+      const lightYears = distance / kmPerLightYear;
+      document.getElementById("result").textContent = 
+        `${distance.toLocaleString()} kilometers is approximately ${lightYears.toFixed(10)} light years.`;
+    }
+  </script>
+
+</body>
+</html>
